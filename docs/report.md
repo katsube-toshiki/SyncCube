@@ -39,23 +39,23 @@
    - 各メンバーの顔画像から特徴量を抽出し、MV中の顔を自動識別。  
    - 顔を中心にズームして再構成した「フォーカス版MV」を生成。
    - 元のMV
-    ![](./image/figure01.png)
+    ![](../img/figure01.png)
    - メンバーごとに分割されたMV
-    ![](./image/figure02.png)
+    ![](../img/figure02.png)
 
 2. **立方体上での映像再生**  
    - 使用: `OpenGL`, `pygame`, `OpenCV`  
    - 6面の動画をテクスチャとして貼り付け、3D空間でレンダリング。  
    - フレーム進行のズレを補正し、音声と同期させてスムーズに再生。
    - 立方体上で再生されるMV
-    ![](./image/figure03.png)
+    ![](../img/figure03.png)
 
 3. **姿勢センサーとの同期**  
    - 使用: `PySerial`, Arduino + 6軸加速度センサー  
    - Madgwick フィルタで Roll / Pitch / Yaw を計算し、Python 側にシリアル通信で送信。  
    - センサーを回転させると立方体もリアルタイムに回転。
    - 6軸加速度センサー
-    ![](./image/figure04.jpg)
+    ![](../img/figure04.jpg)
 
 
 ## 工夫した点

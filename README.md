@@ -3,7 +3,7 @@
 K-POPなどのミュージックビデオからメンバーごとのカットを自動抽出し、6人分の映像を立方体の各面に貼り付けてリアルタイムに回転表示するデモです。姿勢センサー（マイコン）からの姿勢角（Roll/Pitch/Yaw）で視点を操作し、音声は同期再生します。
 
 作成動機、工夫した点は以下のレポートに記載しました。
-[SyncCube制作レポート](./report.md)
+[SyncCube制作レポート](./docs/report.md)
 
 ## 概要
 - 顔認識: InsightFace を用いて学習（参照画像から埋め込みを作成）。
@@ -12,14 +12,15 @@ K-POPなどのミュージックビデオからメンバーごとのカットを
 
 ## リポジトリ構成（抜粋）
 ```
-cube_mapping.py      # 立方体へ動画テクスチャを貼って表示（OpenGL）
-mvcreator.py         # 顔認識→人物追跡→メンバー別カット動画の生成
-bts/                 # 学習用の参照画像（人物ごとにサブフォルダ）
-bts_bin/             # 顔埋め込み（encodings.npy）と名前（names.npy）の保存先
-newjeans/
-newjeans_bin/
-twice/
-twice_bin/
+mvcreator.py          # 顔認識→人物追跡→メンバー別カット動画の生成
+cube_mapping.py       # 立方体へ動画テクスチャを貼って表示（OpenGL）
+member_images/        # 学習用の参照画像（人物ごとにサブフォルダ）
+├── bts/
+├── bts_bin/
+├── newjeans/
+├── newjeans_bin/
+├── twice/
+└── twice_bin/
 ```
 
 各グループのフォルダ配下は「人物名/画像.jpg...」という構造です。（例: `twice/nayeon/xxx.jpg`）。`*_bin/` 配下には生成済みの顔埋め込みが保存されます。
